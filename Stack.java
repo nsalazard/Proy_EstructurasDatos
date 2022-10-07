@@ -12,7 +12,7 @@ public class Stack {
         System.out.println(pila.mejor());
 
     }
-    private static final int N = 7;
+    private static final int N = 10000000;
     private int top;
     public float[] pila;
 
@@ -27,7 +27,7 @@ public class Stack {
     }
 
     public void push(float item) {
-        if (top == 6){
+        if (top == N){
             throw new RuntimeException("La pila está llena");
         }
         pila[top] = item;
