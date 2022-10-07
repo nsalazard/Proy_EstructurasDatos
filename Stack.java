@@ -1,16 +1,15 @@
+import java.util.Scanner;
 public class Stack {
     public static void main(String[] args) {
         Stack pila = new Stack();
-        pila.push(10);
-        pila.push(5);
-        pila.push(7);
-        pila.push(3);
-        pila.push(11);
-        pila.push(19);
+        Scanner solicitar = new Scanner(System.in);
+        int datos = solicitar.nextInt();
 
-
+        for(int i = 0; i< datos; i++){
+            int cargar = solicitar.nextInt();
+            pila.push(cargar);
+        }
         System.out.println(pila.mejor());
-        System.out.println(pila.pop());
 
     }
     private static final int N = 7;
