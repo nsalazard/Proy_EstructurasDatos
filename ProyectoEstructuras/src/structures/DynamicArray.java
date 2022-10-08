@@ -111,21 +111,21 @@ public class DynamicArray<T> {
     }
     
     private void sort(int beg, int las,Comparator comparator){ 
-        if (beg != las) {
-            sort(beg,((beg+las)>>1),comparator);
-            sort(((beg+las)>>1)+1,las,comparator);
+        if (beg < las) {
             int mid = (beg+las)>>1;
+            sort(beg,mid,comparator);
+            sort(mid+1,las,comparator);            
             merge(beg,mid,las,comparator);
         }
     }
     
     private void merge(int beg,int mid,int las,Comparator comparator) {
         T[] auxArray = (T[])(new Object[array.length]);
-        System.arraycopy(array,0,auxArray,0,array.length);
+        System.arraycopy(array,beg,auxArray,beg,las-beg+1);
         int idx = beg;
         int idx1 = beg;
         int idx2 = mid+1;
-        while (idx <= las) {
+        while (idx1 <= mid || idx2 <= las) {
             if (idx1 > mid) {
                 array[idx++] = auxArray[idx2++];
             }
@@ -133,7 +133,7 @@ public class DynamicArray<T> {
                 array[idx++] = auxArray[idx1++];
             }
             else {
-                array[idx++] = comparator.compare(array[idx1], array[idx2]) <= 0 ? auxArray[idx1++] : auxArray[idx2++]; 
+                array[idx++] = comparator.compare(auxArray[idx1], auxArray[idx2]) <= 0 ? auxArray[idx1++] : auxArray[idx2++]; 
             }
         }
     }

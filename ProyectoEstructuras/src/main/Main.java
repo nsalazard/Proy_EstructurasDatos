@@ -27,11 +27,11 @@ public class Main {
         // TODO code application logic here
         DynamicArray<Integer> a = new DynamicArray<>();
         a.pushBack(3);
-        a.pushBack(2);
-        a.pushBack(1);
-        a.pushBack(4);
-        a.pushBack(7);
         a.pushBack(-5);
+        a.pushBack(8);
+        a.pushBack(4);
+        a.pushBack(2);
+        a.pushBack(7);
         a.pushBack(9);
         a.pushBack(30);
         a.pushBack(-25);
