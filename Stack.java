@@ -9,10 +9,11 @@ public class Stack {
             int cargar = solicitar.nextInt();
             pila.push(cargar);
         }
-        System.out.println(pila.mejor());
+
+        pila.datos();
 
     }
-    private static final int N = 10000000;
+    private static final int N = 10;
     private int top;
     public float[] pila;
 
@@ -25,7 +26,6 @@ public class Stack {
         top = 0;
         pila =  new float[n];
     }
-
     public void push(float item) {
         if (top == N){
             throw new RuntimeException("La pila está llena");
@@ -33,22 +33,25 @@ public class Stack {
         pila[top] = item;
         top++;
     }
-
     public float pop() {
         float dato = pila[top];
         top--;
         return dato;
     }
-
-    public float mejor(){
-        for(int i = 0; i < top; i++){
-            if (pila[i]  > pila[i + 1]){
-                float guardar = pila[i];
-                pila[i] = pila[i + 1];
-                pila[i + 1] = guardar;
+    public void datos(){
+        for (int n = 0; n < top; n++ ) {
+            for (int i = 0; i < top - 1; i++) {
+                if (pila[i] > pila[i + 1]) {
+                    float guardar = pila[i];
+                    pila[i] = pila[i + 1];
+                    pila[i + 1] = guardar;
+                }
             }
         }
-        return pila[top];
+
+        for(float x : pila){
+            System.out.println(x);
+        }
     }
 
 
