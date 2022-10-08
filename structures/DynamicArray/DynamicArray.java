@@ -11,7 +11,7 @@ public class DynamicArray {
     }
 
     // este método mete en el array el valor que se le pase de manera que los valores quedan organizados de menor a mayor
-    public void PushIn(float value) {
+    public void PushBackOrdered(float value) {
 
         if (size >= capacity) {
             float[] newArray = new float[capacity * 2];
@@ -42,26 +42,17 @@ public class DynamicArray {
 
     }
 
-    public void PushBack(float val) {
-        if (size < capacity) {
-            array[size] = val;
-            size++;
-        } else {
-            float[] newArray = new float[2 * capacity];
-            for (int i = 0; i < capacity; i++) {
-                newArray[i] = array[i];
-            }
-            capacity *= 2;
-            array = newArray;
-            array[size] = val;
-            size++;
-        }
-    }
     //devuelve el valor en el array más grande
     public float getBestOne(){
         return array[size-1];
     }
-
+    //devuelve el valor más grande y lo elimina 
+    public float popBestOne(){
+        float item = array[size-1];
+        size--;
+        return item;
+    }
+    //retorna el valor del índice dado
     public float get(int pos) {
         if (pos < 0 || pos >= size) {
             throw new RuntimeException("ERROR: index out of range");
@@ -70,7 +61,7 @@ public class DynamicArray {
             return array[pos];
         }
     }
-
+    //cambiar el valor del índice dado
     public void set(int pos, float value) {
         if (pos < 0 || pos >= size) {
             throw new RuntimeException("ERROR: index out of range");
@@ -78,7 +69,8 @@ public class DynamicArray {
             array[pos] = value;
         }
     }
-
+    
+    //elimina el valor del índice dado
     public void Remove(int pos) {
         if (pos < 0 || pos >= size) {
             System.out.println("ERROR: index out of range ");
@@ -90,11 +82,8 @@ public class DynamicArray {
         }
 
     }
-
-    public int Size() {
-        return size;
-    }
-
+    
+//muestra el array
     public void showArray() {
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
