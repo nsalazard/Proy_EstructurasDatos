@@ -1,19 +1,24 @@
-import java.util.Scanner;
+import java.util.Arrays;
 public class Stack {
-    /*public static void main(String[] args) {
-        Stack pila = new Stack();
-        Scanner solicitar = new Scanner(System.in);
-        int datos = solicitar.nextInt();
+    public static void main(String[] args) {
 
-        for(int i = 0; i< datos; i++){
-            int cargar = solicitar.nextInt();
-            pila.push(cargar);
+        Stack pila = new Stack();
+
+        int max = 10000;
+        long contador = System.nanoTime();
+
+        for(int i = 0; i < max; i++) {
+            int getRandomValue = (int) (Math.random()*(max));
+            pila.push(getRandomValue);
+
         }
 
         pila.datos();
+        long contador1 = System.nanoTime();
+        System.out.println(contador1 - contador);
 
-    }*/
-    private static final int N = 10;
+    }
+    private static final int N = 10000;
     private int top;
     public float[] pila;
 
@@ -39,18 +44,11 @@ public class Stack {
         return dato;
     }
     public void datos(){
-        for (int n = 0; n < top; n++ ) {
-            for (int i = 0; i < top - 1; i++) {
-                if (pila[i] > pila[i + 1]) {
-                    float guardar = pila[i];
-                    pila[i] = pila[i + 1];
-                    pila[i + 1] = guardar;
-                }
-            }
-        }
+        Arrays.parallelSort(pila,0,N);
 
         for(float x : pila){
             System.out.println(x);
         }
     }
+
 }
