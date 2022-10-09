@@ -1,10 +1,12 @@
-package structures;
+package ProyectoEstructuras.src.structures;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 
 //Clase Arreglo Dinámico
 public class DynamicArray<T> {
+
 
    
     private T[] array;//Arreglo 
@@ -104,9 +106,9 @@ public class DynamicArray<T> {
      * @param comparator forma de comparar los elementos
      */
     public void sort(Comparator comparator) {
-        sort(0,size-1,comparator);
+        Arrays.parallelSort(array,0,size,comparator);
     }
-    
+    /*
     private void sort(int beg, int las,Comparator comparator){ 
         if (beg < las) {
             int mid = (beg+las)>>1;
@@ -133,5 +135,5 @@ public class DynamicArray<T> {
                 array[idx++] = comparator.compare(auxArray[idx1], auxArray[idx2]) <= 0 ? auxArray[idx1++] : auxArray[idx2++]; 
             }
         }
-    }
+    }*/
 }
