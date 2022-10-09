@@ -9,21 +9,24 @@ import java.util.Comparator;
 /**
  *
  * @author Usuario
- * @param <T> tipo de dato
+ * @param <T> Tipo de dato de la lista
  */
-public class OrderedLinkedList<T> {
+public class OrderedDoublyLinkedList<T> {
     private class Node<T> {
         private T data;
         private Node<T> next;
+        private Node<T> prev;
         
         public Node() {
             data = null;
             next = null;
+            prev = null;
         }
         
         public Node(T data) {
             this.data = data;
             next = null;
+            prev = null;
         }
 
         public T getData() {
@@ -40,14 +43,22 @@ public class OrderedLinkedList<T> {
 
         public void setNext(Node<T> next) {
             this.next = next;
-        }        
+        }   
+        
+        public Node<T> getPrev() {
+            return prev;
+        }
+        
+        public void setPrev(Node<T> prev) {
+            this.prev = prev;
+        }
     }
     private Node<T> head;
     private Node<T> tail;
     private int size;
     private Comparator comparator;
     
-    public OrderedLinkedList(Comparator comparator) {
+    public OrderedDoublyLinkedList(Comparator comparator) {
         head = null;
         tail = null;
         size = 0;
@@ -72,17 +83,21 @@ public class OrderedLinkedList<T> {
         }
         else if (aux1 == head) {
             nnode.setNext(head);
+            head.setPrev(nnode);
             head = nnode;
         }
         else if (aux1 == null) {
+            nnode.setPrev(aux2);
             aux2.setNext(nnode);
             tail = nnode;
         }
         else {
-            aux2.setNext(nnode);
             nnode.setNext(aux1);
+            Node<T> aux = aux1.getPrev();
+            aux.setNext(nnode);
+            aux1.setPrev(nnode);
+            nnode.setPrev(aux);
         }
-        size++;
     }
     
     public void pop(T data) {
@@ -94,11 +109,9 @@ public class OrderedLinkedList<T> {
         }
         if (aux1 == head) {
             head = head.getNext();
-            size--;
         }
         else if (aux1 != null){
             aux2.setNext(aux1.getNext());
-            size--;
         }
     }
     
@@ -113,32 +126,19 @@ public class OrderedLinkedList<T> {
     
     public T popFront() {
         if (head == null) {
-            return  null;
+            return null;
         }
         T info = head.getData();
-        head = head.getNext();              
+        head = head.getNext();
         return info;
     }
     
-    public T popBack() {
+    public T popBack() {        
         if (head == null) {
             return null;
         }
-        Node<T> aux1 = head;
-        Node<T> aux2 = head;
-        T info;
-        while (aux1.getNext() != null) {
-            aux2 = aux1;
-            aux1 = aux1.getNext();
-        }
-        if (aux1 == head) {
-            info = aux1.getData();
-            head = null;
-        }
-        else {
-            info = aux1.getData();
-            aux2.setNext(null);
-        }   
+        T info = tail.getData();
+        tail = tail.getPrev();
         return info;
     }
     
