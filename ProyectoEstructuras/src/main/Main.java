@@ -43,6 +43,8 @@ public class Main {
         */
         OrderedDoublyLinkedList<Integer> a = new OrderedDoublyLinkedList<>(comp);
         a.push(3);
+        a.push(3);
+        a.push(3);
         a.push(4);
         a.push(5);
         a.push(-1);
