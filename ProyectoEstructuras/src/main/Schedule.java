@@ -85,5 +85,38 @@ public class Schedule {
 
     public void setSunday(int sunday) {
         this.sunday = sunday;
-    }   
+    } 
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (this == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Schedule other = (Schedule)obj;
+        if (this.monday != other.getMonday()) {
+            return false;
+        }
+        if (this.tuesday != other.getTuesday()) {
+            return false;
+        }
+        if (this.wednesday != other.getWednesday()) {
+            return false;
+        }
+        if (this.thursday != other.getThursday()) {
+            return false;
+        }
+        if (this.friday != other.getFriday()) {
+            return false;
+        }
+        if (this.saturday != other.getSaturday()) {
+            return false;
+        }
+        return this.sunday == other.getSunday();
+    }
 }

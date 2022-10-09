@@ -82,10 +82,7 @@ public class DynamicArray<T> {
      * Muestra el arreglo por consola
      */
     public void showArray() {
-        for (int i=0;i<size;i++) {
-            System.out.print(array[i].toString()+" ");
-        }
-        System.out.println();
+        System.out.println(toString());
     }
     
     /**
@@ -95,8 +92,8 @@ public class DynamicArray<T> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (T x : array) {
-            sb.append(x.toString());
+        for (int i=0;i<size;i++) {
+            sb.append(array[i].toString());
             sb.append(", ");
         }
         return sb.toString();

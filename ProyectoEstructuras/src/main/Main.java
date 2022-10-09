@@ -5,6 +5,7 @@
 package main;
 
 import structures.DynamicArray;
+import structures.OrderedLinkedList;
 import java.util.Comparator;
 /**
  *
@@ -24,7 +25,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // TODO code application logic here  
+        /*
         DynamicArray<Integer> a = new DynamicArray<>();
         a.pushBack(3);
         a.pushBack(-5);
@@ -37,6 +39,16 @@ public class Main {
         a.pushBack(-25);
         a.sort(comp);
         a.showArray();
+        */
+        OrderedLinkedList<Integer> a = new OrderedLinkedList<>(comp);
+        a.push(3);
+        a.push(4);
+        a.push(5);
+        a.push(-1);
+        a.push(1);
+        a.push(-4);
+        a.push(-5);
+        a.showList();
     }
     
 }

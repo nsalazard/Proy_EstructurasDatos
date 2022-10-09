@@ -57,4 +57,25 @@ public class Group {
             return Professor.BY_SCORE.compare(x.getProfessor(), y.getProfessor());
         }
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == null) {
+            return false;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Group other = (Group)obj;
+        if (!this.professor.equals(other.getProfessor())) {
+            return false;
+        }
+        if (!this.courseName.equals(other.getCourseName())) {
+            return false;
+        }
+        return this.schedule.equals(other.getSchedule());
+    }
 }
