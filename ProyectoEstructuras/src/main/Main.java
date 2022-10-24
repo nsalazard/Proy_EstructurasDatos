@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package ProyectoEstructuras.src.main;
+package main;
 
-import ProyectoEstructuras.src.structures.DynamicArray;
-import ProyectoEstructuras.src.structures.OrderedLinkedList;
+import structures.DynamicArray;
+import structures.OrderedLinkedList;
 
 import structures.OrderedDoublyLinkedList;
 import java.util.Comparator;
@@ -27,9 +27,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        /*
         OrderedDoublyLinkedList<Integer> a = new OrderedDoublyLinkedList<>(comp);
-        int n = 100000;
+        int n = 1000;
         OrderedDoublyLinkedList <Float> contador = new OrderedDoublyLinkedList<Float>(comp);
         long tiempo = System.nanoTime();
         for(int i = 0; i < n; i++){
@@ -38,7 +38,15 @@ public class Main {
         contador.showList();
         long tiempo1 = System.nanoTime();
         System.out.println(tiempo1 - tiempo);
-
+        */
+        Course course = new Course("Calc",new Schedule(1,1,1,1,1,1,1));
+        course.append(new Group(new Professor("David",5f),20,new Schedule(1,1,1,1,1,1,1),"Calc"));
+        course.append(new Group(new Professor("Alberto",4.8f),20,new Schedule(2,2,2,2,2,2,2),"Calc"));
+        course.append(new Group(new Professor("Herrera",5f),10,new Schedule(2,2,0,2,2,2,2),"Calc"));
+        
+        course.sort();
+        System.out.println(course.getName());
+        course.getGroups().showArray();
     }
     
 }

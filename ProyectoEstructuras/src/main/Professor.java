@@ -60,6 +60,14 @@ public class Professor {
         return this.name.equals(other.getName());
     }
     
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Profesor: ").append(name).append("\n");
+        sb.append("Calificacion: ").append(Float.toString(score)).append("\n");
+        return sb.toString();
+    }
+    
     private static class ByScore implements Comparator<Professor> {
         @Override
         public int compare(Professor x, Professor y) {

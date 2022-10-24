@@ -1,3 +1,4 @@
+package structures;
 import java.util.Arrays;
 public class Stack {
     public static void main(String[] args) {
