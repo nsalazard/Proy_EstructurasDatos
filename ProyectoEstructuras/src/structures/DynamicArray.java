@@ -69,7 +69,11 @@ public class DynamicArray<T> {
         if (pos < 0 || pos >= size) {
             throw new IndexOutOfBoundsException();
         } 
-        array[pos] = array[size--];       
+        array[pos] = array[--size];       
+    }
+    
+    public void popBack() {
+        size--;
     }
 
     /**
