@@ -92,13 +92,13 @@ public class Course {
                 weekx[4] = (x.getSchedule().getFriday() == 0 || (x.getSchedule().getFriday()&selected_schedule.getFriday()) != 0);
                 weekx[5] = (x.getSchedule().getSaturday() == 0 || (x.getSchedule().getSaturday()&selected_schedule.getSaturday()) != 0);
                 weekx[6] = (x.getSchedule().getSunday() == 0 || (x.getSchedule().getSunday()&selected_schedule.getSunday()) != 0);
-                weeky[0] = (x.getSchedule().getMonday() == 0 || (x.getSchedule().getMonday()&selected_schedule.getMonday()) != 0);
-                weeky[1] = (x.getSchedule().getTuesday() == 0 || (x.getSchedule().getTuesday()&selected_schedule.getTuesday()) != 0);
-                weeky[2] = (x.getSchedule().getWednesday() == 0 || (x.getSchedule().getWednesday()&selected_schedule.getWednesday()) != 0);
-                weeky[3] = (x.getSchedule().getThursday() == 0 || (x.getSchedule().getThursday()&selected_schedule.getThursday()) != 0);
-                weeky[4] = (x.getSchedule().getFriday() == 0 || (x.getSchedule().getFriday()&selected_schedule.getFriday()) != 0);
-                weeky[5] = (x.getSchedule().getSaturday() == 0 || (x.getSchedule().getSaturday()&selected_schedule.getSaturday()) != 0);
-                weeky[6] = (x.getSchedule().getSunday() == 0 || (x.getSchedule().getSunday()&selected_schedule.getSunday()) != 0);
+                weeky[0] = (x.getSchedule().getMonday() == 0 || (y.getSchedule().getMonday()&selected_schedule.getMonday()) != 0);
+                weeky[1] = (x.getSchedule().getTuesday() == 0 || (y.getSchedule().getTuesday()&selected_schedule.getTuesday()) != 0);
+                weeky[2] = (x.getSchedule().getWednesday() == 0 || (y.getSchedule().getWednesday()&selected_schedule.getWednesday()) != 0);
+                weeky[3] = (x.getSchedule().getThursday() == 0 || (y.getSchedule().getThursday()&selected_schedule.getThursday()) != 0);
+                weeky[4] = (x.getSchedule().getFriday() == 0 || (y.getSchedule().getFriday()&selected_schedule.getFriday()) != 0);
+                weeky[5] = (x.getSchedule().getSaturday() == 0 || (y.getSchedule().getSaturday()&selected_schedule.getSaturday()) != 0);
+                weeky[6] = (x.getSchedule().getSunday() == 0 || (y.getSchedule().getSunday()&selected_schedule.getSunday()) != 0);
                 for (int i=0;i<7;i++) {
                     if (weekx[i] && !weeky[i]) {
                         return -1;

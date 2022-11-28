@@ -39,14 +39,26 @@ public class Main {
         long tiempo1 = System.nanoTime();
         System.out.println(tiempo1 - tiempo);
         */
-        Course course = new Course("Calc",new Schedule(1,1,1,1,1,1,1));
+        
+        //.....000110000000000000000
+        Course course = new Course("Calc",new Schedule(98304,0,98304,0,0,0,0));
         course.append(new Group(new Professor("David",5f),20,new Schedule(1,1,1,1,1,1,1),"Calc"));
-        course.append(new Group(new Professor("Alberto",4.8f),20,new Schedule(2,2,2,2,2,2,2),"Calc"));
+        course.append(new Group(new Professor("Alberto",4.8f),20,new Schedule(98304,0,98304,0,0,0,0),"Calc"));
         course.append(new Group(new Professor("Herrera",5f),10,new Schedule(2,2,0,2,2,2,2),"Calc"));
         
         course.sort();
         System.out.println(course.getName());
         course.getGroups().showArray();
     }
+    /*
+    {
+    Curso: {Coursename: String, Dias: 0-2, Hora: 9-11},
+    Grupos: [
+    {Profesor: Nombre, Score: cali, Cupos: Int, Días: 0-2,Hora: 9-11},
+    {...},
+    {...},
+    ]
+    }
+    */
     
 }
